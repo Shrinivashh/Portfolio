@@ -1,0 +1,369 @@
+:root {
+    cursor: default;
+    --color-white: #fff;
+    --color-black: #000;
+    --color-dark-mode: #11111b;
+    --color-light-mode: #ece7e1;
+    --color-ddd-color: #ddd;
+    --color-gray: #c4c4c4;
+    --color-purple: #8000ff;
+    --color-light-purple: #cf59e6;
+    --color-light-blue: #6bc5f8;
+    --color-navbarBorder-dark: #e2e2e207;
+    --color-shadowDark: rgba(0, 0, 0, 0.137);
+    --static-heading-gradient-blue: #b0f3f1;
+    --static-heading-gradient-pink: #ffcfdf;
+    --tech-stack-box-first-color: #1a1a29;
+    --tech-stack-box-second-color: rgba(27, 27, 40, 0);
+    --tech-stack-box-border-color: #292929
+}
+
+body {
+    background: linear-gradient(90deg, #010101, #1a121d, #371844);
+    background-size: 200% 200%;
+    animation: bg-grad 10s ease infinite;
+}
+
+@keyframes bg-grad {
+    0% {
+        background: linear-gradient(90deg, #010101, #1a121d, #371844);
+        background-position: 0% 0%;
+    }
+    50% {
+        background: linear-gradient(90deg, #010101, #1a121d, #371844);
+        background-position: 100% 100%;
+    }
+    100% {
+        background: linear-gradient(90deg, #010101, #1a121d, #371844);
+        background-position: 0% 0%;
+    }
+}
+#name,.getintouch-heading article {
+    background: -webkit-linear-gradient(135deg,var(--color-light-blue),var(--color-light-purple),var(--color-light-blue),var(--color-light-purple));
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+
+#project1
+{
+    background: linear-gradient(90deg, #010101, #1a121d, #371844);
+    box-shadow: 5px 5px 30px black;
+    margin-bottom: 200px;
+}
+#project2
+{
+    background: linear-gradient(270deg, #010101, #1a121d, #371844);
+    box-shadow: 5px 5px 30px black;
+    margin-bottom: 200px;
+}
+
+#bg
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(150deg, #71cbff, #8000ff);
+    z-index: -1;
+    left: 6px;
+    top: 6px;
+    border-radius: 7px;
+    pointer-events: none;
+    transition: .3s;
+}
+
+.navbar {
+    border-radius: 30px;
+    font-weight: bolder !important;
+    position: fixed;
+    width: 85%;
+    top: 20;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0); /* White with 20% opacity */
+    backdrop-filter: blur(20px); /* Adds a blur effect */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Optional: A border to enhance the glass effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow for depth */
+}
+
+
+
+.card-container {
+    position: relative;
+    margin: 15px; /* Space between cards */
+}
+
+.card {
+    width: 100%; /* Full width of the column */
+    height: 400px;
+    padding: 20px;
+    align-content: center;
+    justify-content: center;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+    overflow: hidden; /* Hide overflow to prevent content spilling */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    position: relative; /* Positioning context for content */
+    background: linear-gradient(90deg, #010101, #1a121d, #371844); /* Gradient background */
+    box-shadow: 5px 5px 20px black;
+}
+
+/* Add the shining effect with animation */
+.card::before {
+    content: "";
+    position: absolute;
+    top: -50%; /* Start above the card */
+    left: -50%; /* Start from the left */
+    width: 200%; /* Make it wide enough to cover the card diagonally */
+    height: 200%; /* Make it tall enough to cover the card diagonally */
+    background: rgba(255, 255, 255, 0.3); /* Semi-transparent white */
+    transform: rotate(45deg); /* Rotate to create diagonal shine */
+    transition: transform 0.5s ease-out; /* Smooth transition */
+    z-index: 10; /* Ensure it appears on top of the card */
+    animation: shine 15s infinite; /* Apply the shine animation */
+}
+
+@keyframes shine {
+    0% {
+        transform: translate(-200%, -200%) rotate(45deg); /* Start position */
+    }
+    33% {
+        transform: translate(200%, 200%) rotate(45deg); /* Move across the first card */
+    }
+    66% {
+        transform: translate(-200%, -200%) rotate(45deg); /* Move across the second card */
+    }
+    100% {
+        transform: translate(200%, 200%) rotate(45deg); /* End position at the third card */
+    }
+}
+
+.card:hover::before {
+    animation: none; /* Remove animation on hover */
+    transform: translate(200%, 200%) rotate(45deg); /* Apply shine directly on hover */
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0;
+    position: relative; /* Ensure title is above content */
+    z-index: 2; /* Title on top initially */
+    transition: opacity 5s ease; /* Smooth transition for title visibility */
+}
+
+.card-content {
+    opacity: 0; /* Hide content initially */
+    transition: opacity 0.3s ease; /* Smooth transition for content visibility */
+    position: absolute;
+    align-content: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    text-align: center; /* Center text inside the content */
+    z-index: 1; /* Content below the title initially */
+    background: #f0f0f0c5; /* Background color for content */
+    color: #000; /* Text color for content */
+}
+
+/* Hover effect for card enlargement */
+.card:hover {
+    transform: scale(1.05); /* Slightly enlarge the card on hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+/* Hover effect to reveal content */
+.card:hover .card-content {
+    opacity: 1; /* Reveal content on hover */
+}
+
+/* Hover effect to hide title */
+.card:hover .card-title {
+    opacity: 0; /* Hide title on hover */
+}
+#pimg {
+    /* Initial styles for the element */
+    position: relative; /* Ensure element is positioned for translation */
+    border: 2px solid transparent; /* Initial border state */
+    transition: transform 0.3s ease; /* Smooth transition for translation */
+}
+#pimg {
+    position: relative;
+    overflow: hidden; /* Ensure borders do not overflow */
+    background: #f0f0f0c5; /* Background color for visibility */
+}
+
+#pimg::before,
+#pimg::after {
+    content: "";
+    position: absolute;
+    border: 2px solid transparent;
+    transition: transform 2s linear, border-color 2s linear; /* Smooth border and transform transitions */
+}
+
+#pimg::before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+    transform: translate(-100%, -100%); /* Start position for animation */
+}
+
+#pimg::after {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border-bottom: 2px solid transparent;
+    border-right: 2px solid transparent;
+    transform: translate(100%, 100%); /* Start position for animation */
+}
+
+#pimg:hover::before,
+#pimg:hover::after {
+    border-color: var(--color-light-blue); /* Change border color on hover */
+    transform: translate(0, 0); /* End position for animation */
+}
+
+
+
+   
+.cubes {
+    width: 55px;
+    height: 55px;
+    margin: 10px;
+    background-color: white;
+    animation: scale 2s ease-in-out infinite;
+    box-shadow: 5px 5px 30px black;
+}
+
+@keyframes scale {
+    0% {
+        transform: scaleX(3) ;
+    }
+    50% {
+        transform: scaleX(1); /* Scale only in the X direction */
+    }
+    100% {
+        transform: scaleX(3);
+    }
+}
+
+/* Assign different colors to each cube */
+.cubes:nth-child(1) {
+    background-color: #7C93C3;
+    animation-delay: 0s; /* Start immediately */
+}
+
+.cubes:nth-child(2) {
+    background-color: #55679C;
+    animation-delay: 0.25s; /* Delay for a quarter second */
+}
+
+.cubes:nth-child(3) {
+    background-color: #0D7C66;
+    animation-delay: 0.5s; /* Delay for half a second */
+}
+
+.cubes:nth-child(4) {
+    background-color: #2E073F;
+    animation-delay: 0.75s; /* Delay for three-quarters of a second */
+}
+
+.cubes:nth-child(5) {
+    background-color: #2E073F;
+    animation-delay: 1s; /* Delay for a second */
+}
+
+.cubes:nth-child(6) {
+    background-color: #0D7C66;
+    animation-delay: 1.25s; /* Delay for one and a quarter seconds */
+}
+
+.cubes:nth-child(7) {
+    background-color: #55679C;;
+    animation-delay: 1.5s; /* Delay for one and a half seconds */
+}
+
+.cubes:nth-child(8) {
+    background-color: #7C93C3;
+    animation-delay: 1.75s; /* Delay for one and three-quarters seconds */
+}
+#name
+{
+    height: 100% !important;
+}
+#skills
+{
+    height: 100vh !important;
+    
+}
+#skills img
+{
+    width: fit-content;
+    height: fit-content;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 30px;
+    background-color: white;
+    
+}
+#logos
+{
+    padding: 20px;
+    border-radius: 30px;
+}
+#logo
+{
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+#logo:hover
+{
+    color: black;
+    background-color: #9541ce;
+    box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.199);
+    transform: translateZ(5px)
+
+}
+#footer
+{
+    overflow: hidden;
+    background-color: black;
+}
+#hi {
+    display: none; /* Hide the badge initially */
+    white-space: nowrap; /* Prevent text from wrapping */
+    cursor: pointer; /* Optional: change cursor to pointer */
+}
+#anime
+{
+    height: 300px;
+    overflow: hidden;
+}
+
+#me:hover
+{
+    transform: translateY(15px);
+    overflow: hidden;
+    transition: all 2s ease-in-out;
+}
+
+
+
+
+#footer h2
+{
+    background-image: linear-gradient(150deg, #71cbff, #8000ff);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
